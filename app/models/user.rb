@@ -19,7 +19,7 @@ class User < ApplicationRecord
       end
     
       private
-        def create_token
+        def create_token  
           self.activation_token = User.new_token
         #   self.activation_digest = User.digest(activation_token)
         end

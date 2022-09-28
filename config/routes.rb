@@ -1,14 +1,17 @@
 Rails.application.routes.draw do
   devise_for :gymers
   devise_for :admins
-  post '/sign_in', to: 'api/v1/users/admins#sign_in'
+  # post '/sign_in', to: 'api/v1/users/admins#sign_in'
   namespace :api do
     namespace :v1 do
       namespace :users do
         resources :users
         resources :admins
+        resources :sessions
         resources :account_activations, only: [:edit]
-           post '/sign_in', to: 'users#sign_in'
+          #  post '/sign_in', to: 'users#sign_in'
+          # post '/sign_in', to: 'api/v1/users/admins#sign_in'
+        resources :exercises
         end
         namespace :gymers do
           resources :gymers
